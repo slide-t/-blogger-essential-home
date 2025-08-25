@@ -1,85 +1,136 @@
 <style>
-/* === Blogger Cards Boilerplate CSS === */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f8f9fa;
+    }
 
-:root {
-  --card-bg: #ffffff;
-  --card-shadow: rgba(0, 0, 0, 0.1);
-  --text-color: #333;
-  --primary-color: #0077cc;
-  --primary-hover: #005fa3;
-}
+    /* Header */
+    header {
+      background: #001219;
+      color: white;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f4f6f8;
-  color: var(--text-color);
-}
+    /* Search bar */
+    .search-container {
+      position: relative;
+      flex-grow: 1;
+      margin: 0 10px;
+    }
+    .search-input {
+      width: 0;
+      transition: width 0.4s ease;
+      padding: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+    .search-container.active .search-input {
+      width: 100%;
+    }
+    .search-icon {
+      cursor: pointer;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 18px;
+    }
 
-/* Container */
-.cards-container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 16px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
+ /* Filter dropdown */
+    .filter {
+      margin: 10px;
+      text-align: center;
+    }
+    select {
+      padding: 8px;
+      border-radius: 5px;
+    }
 
-/* Card Style */
-.card {
-  background: var(--card-bg);
-  border-radius: 12px;
-  box-shadow: 0 4px 10px var(--card-shadow);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+    /* Card grid */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      padding: 15px;
+    }
+    @media(min-width: 768px) {
+      .card-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+ /* Card styling */
+    .card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      text-align: center;
+      transition: transform 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+    }
+    .card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+    }
+    .card h3 {
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    .buy-now {
+      display: block;
+      width: 100%;
+      background: #0077b6;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+      position: relative;
+    }
+    .add-cart {
+      display: none;
+      width: 100%;
+      background: #00b4d8;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 14px var(--card-shadow);
-}
-
-/* Card Image */
-.card img {
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-}
-
-/* Card Content */
-.card-content {
-  padding: 16px;
-}
-
-.card-content h3 {
-  font-size: 1.2rem;
-  margin: 0 0 10px;
-}
-
-.card-content p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #666;
-}
-
-/* Card Button */
-.card-content a {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 8px 14px;
-  background: var(--primary-color);
-  color: #fff;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: background 0.2s ease;
-}
-
-.card-content a:hover {
-  background: var(--primary-hover);
-}
-</style>
+    /* Cart floating button */
+    .cart-container {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      background: #001219;
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .cart-count {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      background: red;
+      color: white;
+      font-size: 12px;
+      padding: 2px;
+      width:15px;
+      height:15px;
+      border-radius: 50%;
+    }
+  </style>
